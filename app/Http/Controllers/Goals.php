@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Goal;
+use App\Http\Requests\GoalRequest;
 use App\Http\Resources\GoalResource;
 
 
@@ -25,7 +26,7 @@ class Goals extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(GoalRequest $request)
     {
         $data = $request->all();
 
@@ -52,7 +53,7 @@ class Goals extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(GoalRequest $request, $id)
     {
          $data = $request->only("goal");
         $goal->fill($data)->save();

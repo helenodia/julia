@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Requests\CategoryRequest;
 use Illuminate\Http\Request;
 use App\Http\Resources\CategoryResource;
 
@@ -16,7 +16,7 @@ class Categories extends Controller
      */
     public function index()
     {
-        return Categories::all();
+        return Category::all();
     }
 
     /**
@@ -25,7 +25,7 @@ class Categories extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CategoryRequest $request)
     {
         $data = $request->all();
 
@@ -52,7 +52,7 @@ class Categories extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CategoryRequest $request, $id)
     {
         $data = $request->only("category");
         $category->fill($data)->save();
