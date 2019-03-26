@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Goals;
-use App\Http\Resouces\GoalResource;
+use App\Goal;
+use App\Http\Resources\GoalResource;
 
 
 class Goals extends Controller
@@ -16,7 +16,7 @@ class Goals extends Controller
      */
     public function index()
     {
-        //
+        return Goal::all();
     }
 
     /**
@@ -27,7 +27,9 @@ class Goals extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        return Goal::create($data);
     }
 
     /**
@@ -38,7 +40,9 @@ class Goals extends Controller
      */
     public function show($id)
     {
-        //
+        $goal = Goal::find($id);
+
+        return new GoalResource($goal);
     }
 
     /**
@@ -50,7 +54,9 @@ class Goals extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+         $data = $request->only("goal");
+        $goal->fill($data)->save();
+        return $goal;
     }
 
     /**
@@ -61,6 +67,7 @@ class Goals extends Controller
      */
     public function destroy($id)
     {
-        //
+          $goal = goal::find($id);
+        $goal->delete();
     }
 }
