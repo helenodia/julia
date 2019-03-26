@@ -24,7 +24,9 @@ class Categories extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        return Category::create($data);
     }
 
     /**
@@ -35,7 +37,7 @@ class Categories extends Controller
      */
     public function show($id)
     {
-        //
+        return Category::find($id);
     }
 
     /**

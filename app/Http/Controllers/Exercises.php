@@ -38,7 +38,7 @@ class Exercises extends Controller
      */
     public function show($id)
     {
-        return Exercise::find($id) ;
+        return Exercise::find($id);
     }
 
     /**
