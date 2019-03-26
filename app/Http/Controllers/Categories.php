@@ -13,7 +13,7 @@ class Categories extends Controller
      */
     public function index()
     {
-        //
+        return Categories::all());
     }
 
     /**
@@ -37,7 +37,9 @@ class Categories extends Controller
      */
     public function show($id)
     {
-        return Category::find($id);
+        $category = Category::find($id);
+
+        return CategoryResource($category);
     }
 
     /**
@@ -49,7 +51,9 @@ class Categories extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->only("category");
+        $category->fill($data)->save();
+        return $category;
     }
 
     /**
@@ -60,6 +64,10 @@ class Categories extends Controller
      */
     public function destroy($id)
     {
-        //
+        $exercise = Exercise::find($id);
+        $exercise->delete();
+
+        // use a 204 code as there is no content in the response
+        // return response(null, 204);
     }
 }
