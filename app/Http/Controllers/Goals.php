@@ -68,7 +68,9 @@ class Goals extends Controller
      */
     public function destroy($id)
     {
-          $goal = goal::find($id);
+        $goal = goal::find($id);
         $goal->delete();
+        return response(null, 204);
+
     }
 }

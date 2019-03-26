@@ -13,14 +13,14 @@ class CreateCategoryExercisesTable extends Migration
      */
     public function up()
     {
-        Schema::create('category_exercises', function (Blueprint $table) {
+        Schema::create('category_exercise', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
 // link up to courses table
-            $table->bigInteger("cat_id")->unsigned();
-            $table->foreign("cat_id")->references("id")->on("categories")->onDelete("cascade");
-            $table->bigInteger("ex_id")->unsigned();
-            $table->foreign("ex_id")->references("id")->on("exercises")->onDelete("cascade");
+            $table->bigInteger("category_id")->unsigned();
+            $table->foreign("category_id")->references("id")->on("categories")->onDelete("cascade");
+            $table->bigInteger("exercise_id")->unsigned();
+            $table->foreign("exercise_id")->references("id")->on("exercises")->onDelete("cascade");
         });
     }
     /**
@@ -30,6 +30,6 @@ class CreateCategoryExercisesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('category_exercises');
+        Schema::dropIfExists('category_exercise');
     }
 }

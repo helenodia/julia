@@ -19,7 +19,6 @@ class Exercises extends Controller
     {
         return ExerciseListResource::collection(Exercise::all());
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -28,6 +27,11 @@ class Exercises extends Controller
      */
     public function store(ExerciseRequest $request)
     {
+        // get appropriate data
+        $data = $request->only(['name', 'description', 'rep_endurance', 'rep_size', 'rep_strength', 'change_over']);
+        // create a new instance of exercise
+        $exercise = new Exercise($data);
+        $category->exercises()->sync([2, 7, 4]);
         $data = $request->all();
 
         return Exercise::create($data);
@@ -66,6 +70,8 @@ class Exercises extends Controller
      */
     public function destroy($id)
     {
-        //
+        $exercise = Exercise::find($id);
+        $exercise->delete();
+        return response(null, 204);
     }
 }

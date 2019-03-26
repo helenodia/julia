@@ -67,10 +67,9 @@ class Categories extends Controller
      */
     public function destroy($id)
     {
-        $exercise = Exercise::find($id);
-        $exercise->delete();
+        $category = Category::find($id);
+        $category->delete();
 
-        // use a 204 code as there is no content in the response
-        // return response(null, 204);
+        return response(null, 204);
     }
 }
