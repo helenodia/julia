@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Goals;
+use App\Http\Resouces\GoalResource;
+
 
 class Goals extends Controller
 {

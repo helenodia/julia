@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Resources\CategoryResource;
+use App\Category;
 
 class Categories extends Controller
 {
@@ -13,7 +15,7 @@ class Categories extends Controller
      */
     public function index()
     {
-        return Categories::all());
+        return Categories::all();
     }
 
     /**
@@ -39,7 +41,7 @@ class Categories extends Controller
     {
         $category = Category::find($id);
 
-        return CategoryResource($category);
+        return new CategoryResource($category);
     }
 
     /**
