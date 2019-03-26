@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Exercise;
+use App\Http\Resources\ExerciseResource;
+use App\Http\Resources\ExerciseListResource;
 
 class Exercises extends Controller
 {
@@ -12,9 +14,9 @@ class Exercises extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return Exercise::all();
+        return new ExerciseListResource($request);
     }
 
     /**
@@ -38,7 +40,9 @@ class Exercises extends Controller
      */
     public function show($id)
     {
-        return Exercise::find($id);
+        $exercise = Exercise::find($id);
+
+        return new ExerciseResource($exercise);
     }
 
     /**
@@ -50,7 +54,7 @@ class Exercises extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return new ExerciseResource($Exercise);
     }
 
     /**
