@@ -26,7 +26,6 @@ class Exercises extends Controller
         // categories
         $categories = Category::parse($request->get('categories', []));
         $exercise->setCategories($categories);
-
         return new ExerciseResource($exercise);
     }
 
@@ -39,7 +38,6 @@ class Exercises extends Controller
     public function update(ExerciseRequest $request, $id)
     {
         $data = $request->only(['title', 'description','rep_time', 'changeover_time']);
-
         $exercise = Exercise::create($data);
 
         // categories

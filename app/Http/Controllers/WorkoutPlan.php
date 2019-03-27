@@ -6,7 +6,7 @@ use App\Goal;
 use App\WorkoutPlan;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Goals;
-use App\Http\Resources\WorkoutPlan;
+use App\Http\Resources\WorkoutPlanResource;
 
 class WorkoutPlan extends Controller
 {
@@ -25,3 +25,25 @@ class WorkoutPlan extends Controller
         //  Category::find($categories) Goals::find($goal);
     }
 }
+
+
+
+
+
+
+
+// public function store(Request $request)
+// 	{
+
+// 		return new WorkoutPlanResource($workoutplan);
+// 	}
+// 	public function show(WorkoutPlan $workoutplan)
+// 	{
+// 	// return the resource
+// 		return new WorkoutPlanResource($workoutplan);
+// 	}
+// 	public function update(Request $request, WorkoutPlan $workoutplan)
+// 	{
+
+// 		return new WorkoutPlanResource($workoutplan);
+	}
