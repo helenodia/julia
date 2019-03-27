@@ -13,9 +13,7 @@ class WorkoutPlan extends Controller
 
         $goal = $request->goal;
 
-
-
-        $goalName = Goal::where('goal', '=', $request['goal'])->first()->only('goal','rep_time');
+        $goalDetails = Goal::where('goal', '=', $request['goal'])->first()->only('goal','rep_time', 'rest_time', 'reps', 'chan');
 
 
         return $goalName;
