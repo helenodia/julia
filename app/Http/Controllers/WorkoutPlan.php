@@ -10,9 +10,14 @@ class WorkoutPlan extends Controller
 {
     public function create(request $request)
     {
+
         $goal = $request->goal;
 
-        return Goal::find($goal);
+        $goalName = Goal::where('goal', '=', $request['goal'])->first()->only('goal','rep_time');
+
+        return $goalName;
+
+
         // $categories = $request->categories;
         //  Category::find($categories) Goals::find($goal);
     }
