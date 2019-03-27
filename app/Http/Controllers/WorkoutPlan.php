@@ -13,12 +13,12 @@ class WorkoutPlan extends Controller
     public function create(request $request)
     {
 
-        $goal = $request->goal;
+        $catDetails = Category::where('category', '=',$request['category'])->first()-only('category');
 
         $goalDetails = Goal::where('goal', '=', $request['goal'])->first()->only('goal','rep_time', 'rest_time', 'reps', 'changeover_time');
 
 
-        return $goalName;
+        return $goalDetails;
 
 
         // $categories = $request->categories;
@@ -46,4 +46,4 @@ class WorkoutPlan extends Controller
 // 	{
 
 // 		return new WorkoutPlanResource($workoutplan);
-	}
+//}
