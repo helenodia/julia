@@ -12,4 +12,11 @@ class Exercise extends Model
     {
         return $this->belongsToMany(Category::class);
     }
+
+    public function setCategories(Collection $categories)
+    {
+    	//update pivot table with cat ids
+    	$this->categories()->sync($categories->pluck('id')->all());
+    	return $this;
+    }
 }

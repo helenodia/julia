@@ -16,7 +16,7 @@ class CreateCategoryExercisesTable extends Migration
         Schema::create('category_exercise', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
-// link up to courses table
+        // link up to courses table
             $table->bigInteger("category_id")->unsigned();
             $table->foreign("category_id")->references("id")->on("categories")->onDelete("cascade");
             $table->bigInteger("exercise_id")->unsigned();
