@@ -18,10 +18,6 @@ class CreateExercisesTable extends Migration
             $table->timestamps();
             $table->string('title', 100);
             $table->text('description');
-            $table->integer('rep_endurance');
-            $table->integer('rep_size');
-            $table->integer('rep_strength');
-            $table->integer('change_over');
         });
     }
 
@@ -33,5 +29,6 @@ class CreateExercisesTable extends Migration
     public function down()
     {
         Schema::dropIfExists('exercises');
+
     }
 }
