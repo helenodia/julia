@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Goal;
+use App\WorkoutPlan;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Goals;
+use App\Http\Resources\WorkoutPlan;
 
 class WorkoutPlan extends Controller
 {
