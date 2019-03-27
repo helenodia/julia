@@ -16,11 +16,6 @@ class ExerciseRequest extends FormRequest
         return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array
-     */
     public function rules()
     {
         return [
@@ -30,6 +25,8 @@ class ExerciseRequest extends FormRequest
             "rep_size" =>["required","integer"],
             "rep_strength" =>["required", "integer"],
             "change_over" =>["required", "integer"],
+            "categories" => ["array"],
+            "categories.*" => ["string", "max:255"],
         ];
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Exercise;
+use App\Category;
 use App\Http\Requests\ExerciseRequest;
 use App\Http\Resources\ExerciseResource;
 use App\Http\Resources\ExerciseListResource;
@@ -18,11 +19,11 @@ class Exercises extends Controller
     public function store(ExerciseRequest $request)
     {
         // get appropriate data & create a new instance of exercise
-        $data = $request->only(['name', 'description', 'rep_endurance', 'rep_size', 'rep_strength', 'change_over']);
+        $data = $request->only(['title', 'description', 'rep_endurance', 'rep_size', 'rep_strength', 'change_over']);
         $exercise = Exercise::create($data);
 
         // categories
-        $categories = Category::parse($request->get('categories'));
+        $categories = Category::parse($request->get('categories', []));
         $exercise->setCategories($categories);
 
         return new ExerciseResource($exercise);
@@ -36,7 +37,14 @@ class Exercises extends Controller
 
     public function update(ExerciseRequest $request, $id)
     {
-        return new ExerciseResource($Exercise);
+        $data = $request->only(['title', 'description', 'rep_endurance', 'rep_size', 'rep_strength', 'change_over']);
+        $exercise = Exercise::create($data);
+
+        // categories
+        $categories = Category::parse($request->get('categories', []));
+        $exercise->setCategories($categories);
+
+        return new ExerciseResource($exercise);
     }
 
     public function destroy($id)
