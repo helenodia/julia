@@ -6,14 +6,16 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 class WorkoutPlan extends JsonResource
 {
-    /**
-     * Transform the resource into an array.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return array
-     */
     public function toArray($request)
     {
-        return parent::toArray($request);
-    }
+        return [
+            "exercise_name" => $this->title,
+            // "exercise_desc" => $this->description,
+            "sets" => $this->sets,
+            "target_reps" => $this->reps,
+            "category" => $this->category, //array of strings
+            // "total_workout_time" => $this-> ?? from timeforworkout,
+        ];    
 }
+
+  
