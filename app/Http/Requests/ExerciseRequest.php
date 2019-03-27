@@ -21,10 +21,6 @@ class ExerciseRequest extends FormRequest
         return [
             "title" => ["required", "string"],
             "description" => ["required", "string"],
-            "rep_endurance" =>["required", "integer"],
-            "rep_size" =>["required","integer"],
-            "rep_strength" =>["required", "integer"],
-            "change_over" =>["required", "integer"],
             "categories" => ["array"],
             "categories.*" => ["string", "max:255"],
         ];

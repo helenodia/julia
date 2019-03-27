@@ -18,10 +18,6 @@ class ExerciseResource extends JsonResource
             "id" => $this->id,
             "title" => $this->title,
             "description" => $this->description,
-            "rep_endurance" => $this->rep_endurance,
-            "rep_size" => $this->rep_size,
-            "rep_strength" => $this->rep_strength,
-            "change_over" => $this->change_over,
         ];
     }
 }

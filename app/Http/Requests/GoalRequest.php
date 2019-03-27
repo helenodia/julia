@@ -28,6 +28,10 @@ class GoalRequest extends FormRequest
             "rest_time" => ["required", "integer"],
             "reps" => ["required", "integer"],
             "sets" => ["required", "integer"],
+            "rep_endurance" =>["required", "integer"],
+            "rep_size" =>["required","integer"],
+            "rep_strength" =>["required", "integer"],
+            "changeover_time" =>["required", "integer"],
         ];
     }
 }

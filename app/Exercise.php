@@ -8,7 +8,7 @@ use Illuminate\Support\Collection;
 
 class Exercise extends Model
 {
-    protected $fillable = ["title", "description", "rep_endurance", "rep_size", "rep_strength", "change_over"];
+    protected $fillable = ["title", "description"];
     protected $with = ["catergories"];
 
     public function categories()

@@ -20,8 +20,11 @@ class GoalResource extends JsonResource
             "rest_time" => $this->rest_time,
             "reps" => $this->reps,
             "sets" => $this->sets,
+            "rep_endurance" => $this->rep_endurance,
+            "rep_size" => $this->rep_size,
+            "rep_strength" => $this->rep_strength,
+            "changeover_time" => $this->changeover_time,
         ];
     }
 }
 
- 
