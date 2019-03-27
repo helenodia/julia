@@ -27,6 +27,7 @@ class Goals extends Controller
         return new GoalResource($goal);
     }
 
+
     public function update(GoalRequest $request, $id)
     {
         $data = $request->only("goal");
