@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+
 use App\Exercise;
 use App\Category;
+use Illuminate\Http\Request;
 use App\Http\Requests\ExerciseRequest;
 use App\Http\Resources\ExerciseResource;
 use App\Http\Resources\ExerciseListResource;
