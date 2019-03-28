@@ -24,19 +24,11 @@ class WorkoutPlans extends Controller
 
         // iterate over categories and return an instance of each category model
 
-        $categories = collect($categories)->map(function($category) {
-            return Category::where('category', '=', $category)->first()->only('category');
+        $categories = collect($categories)->map(function($cat) {
+            return Category::where('category', '=', $cat)->first()->only('id');
         });
-        // create a new laravel collection $exercises = collect([])
-        // iterate over categories calling the exercises method on each $category->exercises() and push to laravel collection;
 
-
-
-        return $categories;
-
-
-        // $categories = $request->categories;
-        //  Category::find($categories) Goals::find($goal);
+       return Category::find(4)->exercises();
     }
 }
 
@@ -45,6 +37,23 @@ class WorkoutPlans extends Controller
 
 
 
+  // foreach ($categories['category'] as $value) {
+         //     // collect($value)->exercises();
+         //     // $exercises->push($value);
+         //    // new Category $value;
+         //    var_dump($value);
+
+         //}
+
+        //  $categories = $categories->map(function($cat) {
+        //     return Category->exercises('category', '=', $cat)->first()-only('title');
+        // });
+
+        // create a new laravel collection $exercises = collect([])
+        // iterate over categories calling the exercises method on each $category->exercises() and push to laravel collection;
+
+        // $categories = $request->categories;
+        //  Category::find($categories) Goals::find($goal);
 
 // public function store(Request $request)
 // 	{
