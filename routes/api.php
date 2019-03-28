@@ -22,3 +22,6 @@ $router->group(["prefix" => "goals"], function ($router) {
     $router->put("{goal}", "Goals@update");
     $router->delete("{goal}", "Goals@destroy");
 });
+
+$router->post("workoutplans", "WorkoutPlans@create");
+

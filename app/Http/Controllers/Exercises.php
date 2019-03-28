@@ -2,65 +2,55 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+
 use App\Exercise;
+use App\Category;
+use Illuminate\Http\Request;
+use App\Http\Requests\ExerciseRequest;
+use App\Http\Resources\ExerciseResource;
+use App\Http\Resources\ExerciseListResource;
 
 class Exercises extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function index(ExerciseRequest $request)
     {
-        return Exercise::all();
+        return ExerciseListResource::collection(Exercise::all());
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function store(ExerciseRequest $request)
     {
-        $data = $request->all();
+        // get appropriate data & create a new instance of exercise
+        $data = $request->only(['title', 'description']);
+        $exercise = Exercise::create($data);
 
-        return Exercise::create($data);
+        // categories
+        $categories = Category::parse($request->get('categories', []));
+        $exercise->setCategories($categories);
+        return new ExerciseResource($exercise);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
-        return Exercise::find($id);
+        $exercise = Exercise::find($id);
+        return new ExerciseResource($exercise);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function update(ExerciseRequest $request, $id)
     {
-        //
+        $data = $request->only(['title', 'description']);
+        $exercise = Exercise::create($data);
+
+        // categories
+        $categories = Category::parse($request->get('categories', []));
+        $exercise->setCategories($categories);
+
+        return new ExerciseResource($exercise);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
-        //
+        $exercise = Exercise::find($id);
+        $exercise->delete();
+        return response(null, 204);
     }
 }
