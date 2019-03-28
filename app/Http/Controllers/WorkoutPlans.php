@@ -22,13 +22,31 @@ class WorkoutPlans extends Controller
         // get categories out of request
         $categories = $request['categories'];
 
+
         // iterate over categories and return an instance of each category model
 
-        $categories = collect($categories)->map(function($cat) {
-            return Category::where('category', '=', $cat)->first()->only('id');
+        // $exercises = collect([]);
+
+        $exercises = collect($categories)->map(function($cat) {
+            $categoryModel = Category::where('category', '=', $cat)->first();
+            return $categoryModel->exercises()->pluck('title');
         });
 
-       return Category::find(4)->exercises();
+
+
+        // dd($categories);
+
+        //   foreach ($categories->first()->only('id') as $value) {
+        //     echo $value;
+        //     }
+
+        // $cat = Category::find(5)->exercises()->pluck('title', 'description');
+
+
+        // // $cat->exercises()->where('title')->get();
+
+        return $exercises;
+
     }
 }
 
@@ -37,13 +55,7 @@ class WorkoutPlans extends Controller
 
 
 
-  // foreach ($categories['category'] as $value) {
-         //     // collect($value)->exercises();
-         //     // $exercises->push($value);
-         //    // new Category $value;
-         //    var_dump($value);
 
-         //}
 
         //  $categories = $categories->map(function($cat) {
         //     return Category->exercises('category', '=', $cat)->first()-only('title');
