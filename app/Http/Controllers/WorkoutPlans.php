@@ -29,14 +29,20 @@ class WorkoutPlans extends Controller
         $desiredTime = $request['time'];
 
         $numOfEx = $this->num_of_ex($goalDetails, $desiredTime);
-
         $exercises = collect($exercises);
-
         $returnedEx = $exercises->take(2);
 
-        return $returnedEx;
-    }
+        $workoutFocus = $categories; //array
+        $workoutGoal = $goalDetails['goal'];
+        $workoutTime = $desiredTime;
+        $restTime = $goalDetails['rest_time'];
+        $sets = $goalDetails['sets'];
+        $targetReps = $goalDetails['reps'];
+//plus returnedEx
 
+        return response()->Json(${$workoutFocus.$workoutGoal.$workoutTime.$restTime.$sets.$targetReps.$returnedEd});
+    }
+// return Response::json($books)
     public function num_of_ex($goalDetails, $desiredTime)
     {
        $goal = $goalDetails['goal'];
@@ -56,4 +62,10 @@ class WorkoutPlans extends Controller
        return $numOfEx;
    }
 }
+
+
+
+
+
+
 
