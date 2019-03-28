@@ -6,6 +6,7 @@ use App\Goal;
 use App\Exercise;
 use App\WorkoutPlan;
 use App\Category;
+use Illuminate\Support\Arr;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Goals;
 // use App\Http\Resources\WorkoutPlanResource;
@@ -32,53 +33,9 @@ class WorkoutPlans extends Controller
             return $categoryModel->exercises()->pluck('title');
         });
 
-
-
-        // dd($categories);
-
-        //   foreach ($categories->first()->only('id') as $value) {
-        //     echo $value;
-        //     }
-
-        // $cat = Category::find(5)->exercises()->pluck('title', 'description');
-
-
-        // // $cat->exercises()->where('title')->get();
+       $exercises = Arr::flatten($exercises);
 
         return $exercises;
 
     }
 }
-
-
-
-
-
-
-
-
-        //  $categories = $categories->map(function($cat) {
-        //     return Category->exercises('category', '=', $cat)->first()-only('title');
-        // });
-
-        // create a new laravel collection $exercises = collect([])
-        // iterate over categories calling the exercises method on each $category->exercises() and push to laravel collection;
-
-        // $categories = $request->categories;
-        //  Category::find($categories) Goals::find($goal);
-
-// public function store(Request $request)
-// 	{
-
-// 		return new WorkoutPlanResource($workoutplan);
-// 	}
-// 	public function show(WorkoutPlan $workoutplan)
-// 	{
-// 	// return the resource
-// 		return new WorkoutPlanResource($workoutplan);
-// 	}
-// 	public function update(Request $request, WorkoutPlan $workoutplan)
-// 	{
-
-// 		return new WorkoutPlanResource($workoutplan);
-//}
