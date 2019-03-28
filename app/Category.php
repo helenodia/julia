@@ -7,8 +7,11 @@ use Illuminate\Support\Collection;
 
 class Category extends Model
 {
+        public $timestamps = false;
         protected $fillable = ["category"];
         protected $visible = ["id", "category"];
+        protected $hidden = ["pivot"];
+
 
         public function exercise()
         {

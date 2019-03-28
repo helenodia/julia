@@ -4,21 +4,24 @@ namespace App\Http\Controllers;
 
 use App\Goal;
 use App\WorkoutPlan;
+use App\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Goals;
-use App\Http\Resources\WorkoutPlanResource;
+// use App\Http\Resources\WorkoutPlanResource;
 
-class WorkoutPlan extends Controller
+class WorkoutPlans extends Controller
 {
     public function create(request $request)
     {
 
-        $catDetails = Category::where('category', '=',$request['category'])->first()-only('category');
+        $catDetails = Category::where('category', '=',$request['categories'])->first();
+
+                $catDetails->WherePivot(4);
 
         $goalDetails = Goal::where('goal', '=', $request['goal'])->first()->only('goal','rep_time', 'rest_time', 'reps', 'changeover_time');
 
 
-        return $goalDetails;
+        return "hello";
 
 
         // $categories = $request->categories;
