@@ -13,7 +13,7 @@ class Category extends Model
         protected $hidden = ["pivot"];
 
 
-        public function exercise()
+        public function exercises()
         {
             return $this->belongsToMany(Exercise::class);
         }
@@ -30,4 +30,6 @@ class Category extends Model
 
         return $categories;
     }
+
+
 }
