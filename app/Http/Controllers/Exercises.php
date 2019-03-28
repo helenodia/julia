@@ -20,7 +20,7 @@ class Exercises extends Controller
     public function store(ExerciseRequest $request)
     {
         // get appropriate data & create a new instance of exercise
-        $data = $request->only(['title', 'description', 'rep_time','changeover_time']);
+        $data = $request->only(['title', 'description']);
         $exercise = Exercise::create($data);
 
         // categories
@@ -37,7 +37,7 @@ class Exercises extends Controller
 
     public function update(ExerciseRequest $request, $id)
     {
-        $data = $request->only(['title', 'description','rep_time', 'changeover_time']);
+        $data = $request->only(['title', 'description']);
         $exercise = Exercise::create($data);
 
         // categories

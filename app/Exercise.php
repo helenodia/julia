@@ -11,13 +11,13 @@ use Illuminate\Support\Collection;
 class Exercise extends Model
 {
     protected $fillable = ["title", "description"];
-    protected $with = ["categories"];
+    // protected $with = ["categories"];
     // protected $hidden = ["account_id", "pivot"];
 
 
     public function categories()
     {
-        return $this->belongsToMany(Category::class)->withPivot('exercise');
+        return $this->belongsToMany(Category::class);
     }
 
     public function setCategories(Collection $categories)
