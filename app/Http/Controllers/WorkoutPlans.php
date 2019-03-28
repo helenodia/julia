@@ -7,6 +7,7 @@ use App\Exercise;
 use App\WorkoutPlan;
 use App\Category;
 use App\Goal;
+use Http\Response;
 use Illuminate\Support\Arr;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Goals;
@@ -40,15 +41,15 @@ class WorkoutPlans extends Controller
 //         $targetReps = $goalDetails['reps'];
 // //plus returnedEx
 
-//         return response()->Json(${$workoutFocus.$workoutGoal.$workoutTime.$restTime.$sets.$targetReps.$returnedEd});
+        // return response()->Json(${$workoutFocus.$workoutGoal.$workoutTime.$restTime.$sets.$targetReps.$returnedEd});
 
-        return Response::json(array(
-        	'workoutFocus' => $categories;
-        	'workoutGoal' => $goalDetails['goal'];
-        	'workoutTime' => $desiredTime;
-        	'restTime' => $goalDetails['rest_time'];
-        	'sets' => $goalDetails['sets'];
-        	'targetReps' => $goalDetails['reps'];
+        return response()->Json(array(
+        	'workoutFocus' => $categories,
+        	'workoutGoal' => $goalDetails['goal'],
+        	'workoutTime' => $desiredTime,
+        	'restTime' => $goalDetails['rest_time'],
+        	'sets' => $goalDetails['sets'],
+        	'targetReps' => $goalDetails['reps'],
         ));
     }
 // return Response::json($books)
