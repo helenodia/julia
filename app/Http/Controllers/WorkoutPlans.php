@@ -50,6 +50,7 @@ class WorkoutPlans extends Controller
         	'restTime' => $goalDetails['rest_time'],
         	'sets' => $goalDetails['sets'],
         	'targetReps' => $goalDetails['reps'],
+            'Workout'=> $returnedEx,
         ));
     }
 // return Response::json($books)
