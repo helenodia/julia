@@ -32,15 +32,24 @@ class WorkoutPlans extends Controller
         $exercises = collect($exercises);
         $returnedEx = $exercises->take(2);
 
-        $workoutFocus = $categories; //array
-        $workoutGoal = $goalDetails['goal'];
-        $workoutTime = $desiredTime;
-        $restTime = $goalDetails['rest_time'];
-        $sets = $goalDetails['sets'];
-        $targetReps = $goalDetails['reps'];
-//plus returnedEx
+//         $workoutFocus = $categories; //array
+//         $workoutGoal = $goalDetails['goal'];
+//         $workoutTime = $desiredTime;
+//         $restTime = $goalDetails['rest_time'];
+//         $sets = $goalDetails['sets'];
+//         $targetReps = $goalDetails['reps'];
+// //plus returnedEx
 
-        return response()->Json(${$workoutFocus.$workoutGoal.$workoutTime.$restTime.$sets.$targetReps.$returnedEd});
+//         return response()->Json(${$workoutFocus.$workoutGoal.$workoutTime.$restTime.$sets.$targetReps.$returnedEd});
+
+        return Response::json(array(
+        	'workoutFocus' => $categories;
+        	'workoutGoal' => $goalDetails['goal'];
+        	'workoutTime' => $desiredTime;
+        	'restTime' => $goalDetails['rest_time'];
+        	'sets' => $goalDetails['sets'];
+        	'targetReps' => $goalDetails['reps'];
+        ));
     }
 // return Response::json($books)
     public function num_of_ex($goalDetails, $desiredTime)
