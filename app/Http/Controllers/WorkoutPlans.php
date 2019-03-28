@@ -23,15 +23,16 @@ class WorkoutPlans extends Controller
         // iterate over categories and return an instance of each category model
         $exercises = collect($categories)->map(function($cat) {
             $categoryModel = Category::where('category', '=', $cat)->first();
-            return $categoryModel->exercises()->pluck('title', 'description');
+            return $categoryModel->exercises()->pluck('title','description');
         });
+
         $exercises = collect(Arr::flatten($exercises))->shuffle()->unique()->values()->all();
 
         $desiredTime = $request['time'];
 
         $numOfEx = $this->num_of_ex($goalDetails, $desiredTime);
         $exercises = collect($exercises);
-        $returnedEx = $exercises->take(2);
+        $returnedEx = $exercises->take($numOfEx);
 
 //         $workoutFocus = $categories; //array
 //         $workoutGoal = $goalDetails['goal'];

@@ -14,7 +14,6 @@ class RemoveTimeColumnsFromExercises extends Migration
     public function up()
     {
         Schema::table('exercises', function (Blueprint $table) {
-            $table->dropColumn("rep_size");
             $table->dropColumn("rep_strength");
             $table->dropColumn("change_over");
             $table->dropColumn("rep_endurance");
