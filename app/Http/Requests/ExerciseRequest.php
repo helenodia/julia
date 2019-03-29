@@ -20,7 +20,6 @@ class ExerciseRequest extends FormRequest
     {
         return [
             "title" => ["required", "string"],
-            "description" => ["required", "string"],
             "categories" => ["array"],
             "categories.*" => ["string", "max:255"],
         ];
