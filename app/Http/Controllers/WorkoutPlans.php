@@ -54,7 +54,7 @@ class WorkoutPlans extends Controller
             'Workout'=> $returnedEx,
         ));
     }
-// return Response::json($books)
+
     public function num_of_ex($goalDetails, $desiredTime)
     {
        $goal = $goalDetails['goal'];
