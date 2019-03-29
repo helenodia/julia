@@ -15,8 +15,8 @@ class CreateGoalsTable extends Migration
             $table->integer('rest_time');
             $table->integer('rep_time');
             $table->integer('reps');
+            $table->integer('changeover_time');
             $table->integer('sets');
-
         });
     }
 
