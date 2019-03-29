@@ -9,7 +9,6 @@ use App\Http\Requests\CategoryRequest;
 
 class Categories extends Controller
 {
-
     public function index()
     {
         return Category::all();
@@ -18,14 +17,12 @@ class Categories extends Controller
     public function store(CategoryRequest $request)
     {
         $data = $request->all();
-
         return Category::create($data);
     }
 
     public function show($id)
     {
         $category = Category::find($id);
-
         return new CategoryResource($category);
     }
 
@@ -36,11 +33,10 @@ class Categories extends Controller
         return $category;
     }
 
-    // public function destroy($id)
-    // {
-    //     $category = Category::find($id);
-    //     $category->delete();
-
-    //     return response(null, 204);
-    // }
+    public function destroy($id)
+    {
+        $category = Category::find($id);
+        $category->delete();
+        return response(null, 204);
+    }
 }

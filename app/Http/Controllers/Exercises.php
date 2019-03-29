@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-
 use App\Exercise;
 use App\Category;
 use Illuminate\Http\Request;
@@ -19,11 +18,10 @@ class Exercises extends Controller
 
     public function store(ExerciseRequest $request)
     {
-        // get appropriate data & create a new instance of exercise
         $data = $request->only(['title', 'description']);
         $exercise = Exercise::create($data);
 
-        // categories
+        // set categories
         $categories = Category::parse($request->get('categories', []));
         $exercise->setCategories($categories);
         return new ExerciseResource($exercise);
@@ -40,10 +38,9 @@ class Exercises extends Controller
         $data = $request->only(['title', 'description']);
         $exercise = Exercise::create($data);
 
-        // categories
+        // set categories
         $categories = Category::parse($request->get('categories', []));
         $exercise->setCategories($categories);
-
         return new ExerciseResource($exercise);
     }
 

@@ -7,18 +7,15 @@ use Illuminate\Support\Collection;
 
 class Category extends Model
 {
-        // public $timestamps = false;
-        protected $fillable = ["category"];
-        protected $visible = ["id", "category"];
-        // protected $hidden = ["pivot"];
+    protected $fillable = ["category"];
+    protected $visible = ["id", "category"];
 
+    public function exercises()
+    {
+        return $this->belongsToMany(Exercise::class);
+    }
 
-        public function exercises()
-        {
-            return $this->belongsToMany(Exercise::class);
-        }
-
-        public static function parse(array $categoryStrings)
+    public static function parse(array $categoryStrings)
     {
         $categories = new Collection();
 
@@ -27,9 +24,6 @@ class Category extends Model
             $exists = Category::where("category", $string)->first();
             $categories->push($exists ? : Category::create(["category" => $string]));
         }
-
         return $categories;
     }
-
-
 }
