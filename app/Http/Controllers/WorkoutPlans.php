@@ -24,9 +24,7 @@ class WorkoutPlans extends Controller
       return $categoryModel->exercises()->pluck('title','description');
     });
 
-    // test without ->values():
-    $exercises = collect(Arr::flatten($exercises))->shuffle()->unique()->values()->all();
-    $exercises = collect($exercises);
+    $exercises = collect(Arr::flatten($exercises))->shuffle()->unique()->values();
     $desiredTime = $request['time'];
     $numOfEx = $this->num_of_ex($goalDetails, $desiredTime);
     $returnedEx = $exercises->take($numOfEx);
