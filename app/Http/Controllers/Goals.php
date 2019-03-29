@@ -7,7 +7,6 @@ use App\Goal;
 use App\Http\Requests\GoalRequest;
 use App\Http\Resources\GoalResource;
 
-
 class Goals extends Controller
 {
     public function index()
@@ -27,7 +26,6 @@ class Goals extends Controller
         return new GoalResource($goal);
     }
 
-
     public function update(GoalRequest $request, $id)
     {
         $data = $request->only("goal");
@@ -40,6 +38,5 @@ class Goals extends Controller
         $goal = goal::find($id);
         $goal->delete();
         return response(null, 204);
-
     }
 }
