@@ -25,3 +25,11 @@ $router->group(["prefix" => "goals"], function ($router) {
 
 $router->post("workoutplans", "WorkoutPlans@create");
 
+
+$router->group(["prefix" => "users"], function ($router) {
+// ...user routes
+// comment routes
+$router->post("{user}/histories", "Histories@create");
+$router->post("{user}/histories", "Histories@store");
+$router->get("{user}/histories", "Histories@index");
+});
