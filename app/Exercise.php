@@ -14,7 +14,6 @@ class Exercise extends Model
     // protected $with = ["categories"];
     // protected $hidden = ["account_id", "pivot"];
 
-
     public function categories()
     {
         return $this->belongsToMany(Category::class);
