@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Goal extends Model
 {
-    protected $fillable = ["goal", "rest_time", "reps", "sets", "rep_time", "changeover_time"];
+	protected $fillable = ["goal", "rest_time", "reps", "sets", "rep_time", "changeover_time"];
 }
