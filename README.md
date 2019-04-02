@@ -8,6 +8,22 @@ The live app can be viewed [here](http://workout-julie.s3-website.eu-west-2.amaz
 
 The front end repo can be viewed [here](https://github.com/tatlay/julie).
 
+## Setup
+### Prerequisites
+
+You will need to have npm installed.
+
+### Installing
+Clone the git repository and run npm install:
+
+````git clone https://github.com/helenodia/julia.git````
+````npm install````
+
+Once all the packages have installed, run the app:
+
+````npm start````
+
+
 ## Contributors
 * [Aran Davy](https://github.com/h2obuffalo) 
 * [Tat Lay](https://github.com/tatlay)
