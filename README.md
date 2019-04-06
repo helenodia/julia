@@ -31,8 +31,10 @@ Make sure you have the following installed:
 
 ### Running
 
-Run `vagrant up` from your Homestead directory to launch the Vagrant box
+Clone the git repository and run vagrant up to launch the Vagrant box:
 
+````git clone git@github.com:helenodia/julia.git````
+````vagrant up````
 
 ## Frontend Setup
 ### Prerequisites
